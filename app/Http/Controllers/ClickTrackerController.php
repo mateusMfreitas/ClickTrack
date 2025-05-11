@@ -32,7 +32,7 @@ class ClickTrackerController extends Controller
         'coordenadas' => $coordinates,
       ];
 
-      $response = Http::post('http://172.26.192.1:5984/clicks', $data);
+      $response = Http::post('http://env(IP_ADDRESS):5984/clicks', $data);
       Log::info($response->body());
       return response()->json(['status' => 'ok'], $response->successful() ? 200 : 500);
     }

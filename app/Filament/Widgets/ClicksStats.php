@@ -12,7 +12,7 @@ class ClicksStats extends BaseWidget
 {
     protected function getStats(): array
     {
-        $response = Http::get('http://172.26.192.1:5984/clicks/_all_docs?include_docs=true');
+        $response = Http::get('http://env(IP_ADDRESS):5984/clicks/_all_docs?include_docs=true');
 
         $docs = $response->json()['rows'] ?? [];
         $contagem = [];
