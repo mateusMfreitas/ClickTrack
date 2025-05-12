@@ -12,7 +12,7 @@ class ClicksPorDiaDaSemana extends ChartWidget
 
     protected function getData(): array
     {
-        $response = Http::get('http://env(IP_ADDRESS):5984/clicks/_all_docs?include_docs=true');
+        $response = Http::get('http://' . env('IP_ADDRESS') . ':5984/clicks/_all_docs?include_docs=true');
         $docs = $response->json()['rows'] ?? [];
 
         $dias = [
